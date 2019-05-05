@@ -26,7 +26,7 @@
                 int[] tab = new int[taille*taille];
                 GrilleCrea crea = new GrilleCrea(tab,taille);
                 Observateur obs = new Observateur(crea,taille);
-                Decode deco = new Decode(crea,taille);
+                Ecriture grandeur = new Ecriture(taille);
                 crea.addMouseListener(obs); 
                 this.add(crea); 
                 

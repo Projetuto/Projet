@@ -26,38 +26,46 @@
             bouton1.addActionListener(this);
             bouton2.addActionListener(this);
             champ.addActionListener(this);
-            this.add(panneau,BorderLayout.SOUTH);
-            
-            
+            this.add(panneau,BorderLayout.SOUTH);          
             this.setVisible(true);
           }
 
 
             public void actionPerformed(ActionEvent arg0) {
                       String dossier= champ.getText();
-                      String verif = dossier.substring(dossier.length()-3,dossier.length());
-                  if(arg0.getSource() == bouton1){
-                    Sauvegarde sauv = new Sauvegarde(dossier);
-                    System.out.println(dossier);
-                    if(verif.equals("lab")){
-                         Sauvegarde sauvegarde = new Sauvegarde(dossier);
+                      String test;
+                      Boolean a=true;
+                      int i;
+                         if(arg0.getSource() == bouton1){
+                          test = dossier.substring(0,dossier.length());
+                          if(test.contains(".")){
+                            String verif = dossier.substring(dossier.length()-3,dossier.length());
+                    if(!verif.equals("lab")){ 
+                       this.champ.setText("");
+                        System.out.println("erreur l'extension doit être .lab");
                     }else{
-                             System.out.println("erreur l'extension doit être .lab");
+                           Sauvegarde sauvegarde = new Sauvegarde(dossier);
+                           this.setVisible(false);           
+                               
                     }
-                         this.dispose();
-
-                  }
+                    
+                      
+                          }else{
+                              this.champ.setText("");
+                        	  System.out.println("erreur l'extension doit être .lab");
+                          }
+                      }
+                    
 
                     if(arg0.getSource() == bouton2){
-                        this.dispose();                       
-
+                        this.setVisible(false);                        
                     }
 
               
 
-          
-}
+        
 
+}
 }
 
         
